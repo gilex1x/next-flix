@@ -1,0 +1,13 @@
+.action_btn{
+    padding: 4px;
+    background-color: whitesmoke;
+    border: none;
+    min-width: 80px;
+    max-width: 120px;
+    border-radius: 4px;
+}
+.action_btn:hover{
+    background-color: aquamarine;
+    cursor: pointer;
+    padding: 8px;
+}
