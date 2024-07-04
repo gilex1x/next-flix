@@ -9,8 +9,10 @@ const NavigationBar = () => {
     }
     return (
         <nav className={style.navigation_container}>
-            <SearchBar searchValue={searchValue} setSearchValue={setSearchValue} />
-            <ActionButton buttonText='Buscar' callback={handleSearch} isDisabled={searchValue === ''} />
+            <div>
+                <SearchBar searchValue={searchValue} setSearchValue={setSearchValue} />
+                <ActionButton buttonText='Buscar' callback={handleSearch} isDisabled={searchValue === ''} />
+            </div>
         </nav>
     )
 };

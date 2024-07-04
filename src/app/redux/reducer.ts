@@ -1,5 +1,5 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { fetchDataRequest, fetchDataError, fetchDataSuccess } from "./actions";
+import { fetchDataRequest, fetchDataError, fetchDataSuccess, setResultData } from "./actions";
 interface MoviesState {
     data: Array<any>,
     isLoading: boolean,
@@ -12,5 +12,8 @@ export const appReducer = createReducer(initialState, (builder) => {
     builder
         .addCase(fetchDataRequest, (state, action) => {
             state.isLoading = true;
+        })
+        .addCase(setResultData,(state,action)=>{
+            
         })
 })

@@ -1,11 +1,19 @@
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import MainTemplate from "@/app/components/templates";
+import { fetchDataRequest } from "@/app/redux/actions";
 export default function Home() {
-  const error = useSelector((state: any) => state.error)
+  const dispatcher = useDispatch();
+  // const getInitialData = ()=>{
+
+  // }
+  useEffect(() => {
+    dispatcher(fetchDataRequest())
+  }, []);
   return (
     <MainTemplate>
       <main>
-        <h1>Esto es un titulo {error}</h1>
+        <h1>Next-Flix</h1>
       </main>
     </MainTemplate>
   );
