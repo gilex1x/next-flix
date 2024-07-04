@@ -6,7 +6,7 @@ interface MoviesState {
     error: string | null
 };
 
-const initialState: MoviesState = { data: [], isLoading: false, error: null };
+const initialState: MoviesState = { data: [], isLoading: false, error: 'Custom error message' };
 
 export const appReducer = createReducer(initialState, (builder) => {
     builder
