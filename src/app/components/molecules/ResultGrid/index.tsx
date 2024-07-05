@@ -8,7 +8,7 @@ const ResultGrid = () => {
     const searchParams = useSelector((state: any) => state.searchParams);
     const dispatcher = useDispatch();
     const handleLoadMore = (): void => {
-        //dispatcher(fetchDataRequest(searchParams.page + 1));
+        dispatcher(fetchDataRequest({ page: searchParams.page + 1 }));
     }
     useEffect(() => {
         console.log(searchParams, listData)

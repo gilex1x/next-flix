@@ -12,7 +12,25 @@ export const getList = async (params: any) => {
             }
         })
             .then(data => data.json())
-            .then(resp => {return resp});
+            .then(resp => { return resp });
+        return request;
+    } catch (error) {
+
+    }
+};
+
+export const searchByTitle = async (titleParam: string) => {
+    const url = new URL(`${baseUrl}/search/movie`);
+    const searchParams = new URLSearchParams(titleParam);
+    try {
+        let request = await fetch(`${url}?${searchParams.toString()}`, {
+            headers: {
+                "Content-Type": 'application/json',
+                "Authorization": `Bearer ${api_key}`
+            }
+        })
+            .then(data => data.json())
+            .then(resp => { return resp });
         return request;
     } catch (error) {
 
