@@ -5,8 +5,8 @@ import { getList } from "@/app/api";
 
 function* fetchData():any {
     try {
-        const data = yield call(getList);
-        yield put(setResultData(data))
+        const data = yield call(getList,{page:1});
+        yield put(setResultData(data.results));
     } catch (error) {
 
     }
