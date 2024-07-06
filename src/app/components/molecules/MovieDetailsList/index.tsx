@@ -1,4 +1,3 @@
-import { staticGenerationAsyncStorage } from "next/dist/client/components/static-generation-async-storage-instance";
 import { useEffect, useState } from "react";
 
 interface MovieDetailListProps {
