@@ -11,10 +11,10 @@ const MoviePage = () => {
     useEffect(() => {
         const movieId = Number(searchParams?.get('movieId'));
         dispatcher(fetchMovieDetails(movieId))
-    }, []);
+    }, [movieDetails]);
     return (
         <>
-        <h1>{movieDetails.title}</h1>
+        <h1>{movieDetails?.title}</h1>
         </>
     )
 };
