@@ -19,7 +19,7 @@ const ResultGrid = () => {
         <section className={style.result_grid_container}>
             <div className={style.result_grid_results}>
                 {dataList?.map((item: any, index: number) => {
-                    return <CardInfo key={item.id} poster_path={item.poster_path} title={item.title} overview={item.overview} />
+                    return <CardInfo movieId={item.id} key={item.id} poster_path={item.poster_path} title={item.title} overview={item.overview} />
                 })}
                 {dataSearchList?.map((item: any, index: number) => {
                     return <CardInfo key={item.id} poster_path={item.poster_path} title={item.title} overview={item.overview} />

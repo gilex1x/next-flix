@@ -37,4 +37,21 @@ export const searchByTitle = async (titleParam: string) => {
     }
 }
 
+export const getMovieDetails = async (movieId: number) => {
+    const url = new URL(`${baseUrl}/movie/${movieId}`);
+    try {
+        let request = await fetch(`${url}`, {
+            headers: {
+                "Content-Type": 'application/json',
+                "Authorization": `Bearer ${api_key}`
+            }
+        })
+            .then(data => data.json())
+            .then(resp => { return resp });
+        return request;
+    } catch (error) {
+
+    }
+}
+
 

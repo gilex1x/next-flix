@@ -12,9 +12,6 @@
   text-align: center;
 }
 
-.card_info:hover{
-    cursor: pointer;
-  }
 .card_info img{
     border-radius: 8px;
 }
