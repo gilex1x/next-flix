@@ -32,6 +32,7 @@ export const appReducer = createReducer(initialState, (builder) => {
         })
         .addCase(setResultData, (state, action) => {
             state.isLoading = false;
+            
             state.dataList = [...state.dataList, ...action.payload];
             state.dataSearchList = [];
         })

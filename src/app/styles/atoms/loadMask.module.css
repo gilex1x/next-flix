@@ -1,0 +1,14 @@
+.loadMask_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: larger;
+  font-weight: bolder;
+  color: white;
+
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  background-color: rgba(128, 128, 128, 0.631);
+  border: none;
+}

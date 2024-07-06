@@ -1,5 +1,5 @@
-import style from '@/app/styles/atoms/cardInfo.module.css'
 import Link from 'next/link';
+import style from '@/app/styles/atoms/cardInfo.module.css';
 
 interface CardInfoProps {
     title?: string;
@@ -13,8 +13,7 @@ const CardInfo = ({ title, poster_path, overview, movieId }: CardInfoProps) => {
         <div className={style.card_info} >
             <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt={`${title}-poster`} width={180} />
             <span>{title}</span>
-            <div>
-                <button>Favorito</button>
+            <div className={style.card_info_morebtn}>
                 <Link href={`/movie?movieId=${movieId}`}>Detalle</Link>
             </div>
         </div>
