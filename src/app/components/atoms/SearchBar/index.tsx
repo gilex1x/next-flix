@@ -10,7 +10,7 @@ const SearchBar = ({ searchValue, setSearchValue }: SearchBarProps) => {
             <input
                 className={style.searchbar}
                 type='search'
-                placeholder="Ingresa el nombre de una pelicula"
+                placeholder="Ingresa un titulo"
                 value={searchValue}
                 onChange={(event) => setSearchValue(event.target.value)}
             />

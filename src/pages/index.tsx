@@ -14,7 +14,6 @@ export default function Home() {
   return (
     <MainTemplate>
       <main>
-        <h1>Next-Flix</h1>
         <ResultGrid />
       </main>
     </MainTemplate>

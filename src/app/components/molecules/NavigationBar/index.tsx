@@ -11,11 +11,12 @@ const NavigationBar = () => {
         dispatcher(fetchSearchMovie({ query: searchValue }))
     }
     return (
-        <nav className={style.naviAgation_container}>
-            <div>
+        <nav className={style.navigation_container}>
+            <div className={style.navigation_container_search}>
                 <SearchBar searchValue={searchValue} setSearchValue={setSearchValue} />
                 <ActionButton buttonText='Buscar' callback={handleSearch} isDisabled={searchValue === ''} />
             </div>
+            <h1>Next-Flix</h1>
         </nav>
     )
 };

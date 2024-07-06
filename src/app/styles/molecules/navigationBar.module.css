@@ -1,4 +1,11 @@
 .navigation_container{
     display: flex;
     justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.navigation_container_search{
+    display: flex;
+    gap: 12px;
 }
