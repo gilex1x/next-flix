@@ -1,5 +1,5 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { fetchDataRequest, fetchDataError, setResultData, setSearchResultData, fetchSearchMovie } from "./actions";
+import { fetchDataRequest, setResultData, setSearchResultData, fetchSearchMovie, fetchMovieDetails, setMovieDetails } from "./actions";
 import { MovieData } from "../api/interface";
 export interface SearchParams {
     page?: number;
@@ -12,9 +12,10 @@ interface MoviesState {
     isLoading: boolean;
     error: string | null;
     searchParams: SearchParams | undefined;
+    movieDetails: any
 };
 
-const initialState: MoviesState = { dataList: [], dataSearchList: [], isLoading: false, error: 'Custom error message', searchParams: { page: 1 } };
+const initialState: MoviesState = { dataList: [], dataSearchList: [], isLoading: false, error: 'Custom error message', searchParams: { page: 1 }, movieDetails: null };
 
 export const appReducer = createReducer(initialState, (builder) => {
     builder
@@ -26,6 +27,9 @@ export const appReducer = createReducer(initialState, (builder) => {
             state.isLoading = true;
             state.searchParams = action.payload;
         })
+        .addCase(fetchMovieDetails, (state, action) => {
+            state.isLoading = true;
+        })
         .addCase(setResultData, (state, action) => {
             state.isLoading = false;
             state.dataList = [...state.dataList, ...action.payload];
@@ -36,4 +40,11 @@ export const appReducer = createReducer(initialState, (builder) => {
             state.dataSearchList = action.payload;
             state.dataList = [];
         })
-})
+        .addCase(setMovieDetails, (state, action) => {
+            state.isLoading = false;
+            state.movieDetails = action.payload;
+            //clear data
+            state.dataSearchList = [];
+            state.dataList = [];
+        })
+});

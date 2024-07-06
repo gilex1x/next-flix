@@ -1,7 +1,7 @@
 import { call, put, takeEvery } from "redux-saga/effects";
-import { setResultData, setSearchResultData } from "../actions";
+import { setMovieDetails, setResultData, setSearchResultData } from "../actions";
 import * as ActionTypes from "../actions/actions";
-import { getList, searchByTitle } from "@/app/api";
+import { getList, searchByTitle, getMovieDetails } from "@/app/api";
 
 function* fetchData(action: any): any {
     try {
@@ -21,9 +21,18 @@ function* fetchQueryMovie(action: any): any {
     }
 };
 
+function* fetchMovieDetails(action: any): any {
+    try {
+        const data = yield call(getMovieDetails, action.payload);
+        yield put(setMovieDetails(data));
+    } catch (error) {
+
+    }
+}
 function* dataSagas() {
     yield takeEvery(ActionTypes.FETCH_DATA_REQUEST, fetchData);
     yield takeEvery(ActionTypes.FETCH_SEARCH_MOVIE, fetchQueryMovie);
+    yield takeEvery(ActionTypes.FETCH_MOVIE_DETAILS, fetchMovieDetails);
 }
 
 export default dataSagas
