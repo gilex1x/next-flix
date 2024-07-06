@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { fetchDataRequest } from "@/app/redux/actions";
-import MainTemplate from "@/app/components/templates";
+import MainTemplate from "@/app/components/templates/main";
 import ResultGrid from "@/app/components/molecules/ResultGrid";
 export default function Home() {
   const dispatcher = useDispatch();

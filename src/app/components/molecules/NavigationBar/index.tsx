@@ -4,17 +4,27 @@ import { fetchSearchMovie } from "@/app/redux/actions";
 import SearchBar from '@/app/components/atoms/SearchBar/index'
 import ActionButton from '../../atoms/ActionButton';
 import style from '@/app/styles/molecules/navigationBar.module.css'
-const NavigationBar = () => {
+
+interface NavigationBarProps {
+    showSearchBar: boolean;
+    showActionButton: boolean;
+    showBackButton: boolean;
+}
+const NavigationBar = (props: NavigationBarProps) => {
     const [searchValue, setSearchValue] = useState<string>('');
     const dispatcher = useDispatch()
     const handleSearch = () => {
-        dispatcher(fetchSearchMovie({ query: searchValue }))
+        dispatcher(fetchSearchMovie({ query: searchValue }));
+    }
+    const handleBack = () => {
+        //
     }
     return (
         <nav className={style.navigation_container}>
             <div className={style.navigation_container_search}>
-                <SearchBar searchValue={searchValue} setSearchValue={setSearchValue} />
-                <ActionButton buttonText='Buscar' callback={handleSearch} isDisabled={searchValue === ''} />
+                {props.showBackButton && <ActionButton buttonText='Volver' callback={handleBack} isDisabled={searchValue === ''} />}
+                {props.showSearchBar && <SearchBar searchValue={searchValue} setSearchValue={setSearchValue} />}
+                {props.showActionButton && <ActionButton buttonText='Buscar' callback={handleSearch} isDisabled={searchValue === ''} />}
             </div>
             <h1>Next-Flix</h1>
         </nav>
